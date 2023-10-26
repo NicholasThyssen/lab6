@@ -19,8 +19,30 @@ def encode(code_string):
     return answer
 
 def decode(encoded_string):
-    #To be implemented by partner
-    return 0
+    # Initialize an empty string to store the decoded password.
+    decoded_password = ""
+
+    # Loop through each character in the encoded string.
+    for char in encoded_string:
+        # Convert the current character to an integer.
+        num = int(char)
+
+        # We need to decrement the number by 3 to decode it.
+        # We'll use a loop that runs three times to do this.
+        for i in range(0,3):
+            # If the number is 0, we wrap it around to 9.
+            if num == 0:
+                num = 9
+            else:
+                # Otherwise, we simply subtract 1 from the number.
+                num -= 1
+        
+        # Add the decoded number to the decoded_password string.
+        decoded_password += str(num)
+
+    # Return the decoded password.
+    return decoded_password
+
 
 if( __name__ == '__main__'):
     #Will always run until code hits a break
